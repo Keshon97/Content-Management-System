@@ -1,18 +1,19 @@
+DROP DATABASE IF EXISTS trackerDb;
 CREATE DATABASE trackerDb;
 
 USE trackerDb;
 
-CREATE TABLE departement (
+CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id),
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-  departement_id: INT,
+  department_id INT,
   PRIMARY KEY (id)
 );
 
