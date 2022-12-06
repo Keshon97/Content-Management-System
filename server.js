@@ -61,7 +61,7 @@ const questions = () => {
       addEmployee();
     }
     else if (choice.mainMenu === 'View Employees') {
-      addEmployee();
+      viewEmployee();
     }
    else {
     console.log('Thanks for visiting!')
