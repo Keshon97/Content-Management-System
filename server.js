@@ -26,7 +26,7 @@ const db = mysql.createConnection(
   console.log(`Connected to the trackerDb database.`)
 );
 const questions = () => {
-  //using
+  //using inquirer to 
   inquirer.prompt({
     type: 'list',
     name: 'mainMenu',
@@ -60,11 +60,14 @@ const questions = () => {
     else if (choice.mainMenu === 'Add Employee') {
       addEmployee();
     }
+    else if (choice.mainMenu === 'View Employees') {
+      addEmployee();
+    }
    else {
     console.log('Thanks for visiting!')
     process.exit;
    }
-  })
+  });
 }
 
 //get all departments
@@ -96,6 +99,22 @@ viewRoles = () => {
     }
   });
 }
+
+//view employee roles
+viewEmployees = () => {
+  //grabs all departments from db
+  db.query ('Select * FROM employee ORDER BY last_name',
+  (err, input) => {
+    if(err) {
+      console.log(err)
+    }
+    else {
+        console.table(input);
+        questions();
+    }
+  });
+}
+
 
 //add a department
 addDepartment = () => {
